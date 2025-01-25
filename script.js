@@ -12,7 +12,7 @@ productForm.addEventListener("submit", function (event) {
 
   axios
     .post(
-      "https://crudcrud.com/api/e64d14d8036241159a8217625a9fcae7/products",
+      "https://crudcrud.com/api/1c35ffd288314e81af1dae1b2c77a7e6/products",
       productDetails
     )
     .then(() => {
@@ -28,17 +28,22 @@ productForm.addEventListener("submit", function (event) {
 // Function to get and display all products
 function getAllProducts() {
   axios
-    .get("https://crudcrud.com/api/e64d14d8036241159a8217625a9fcae7/products")
+    .get("https://crudcrud.com/api/1c35ffd288314e81af1dae1b2c77a7e6/products")
     .then((res) => {
       // Clear previous content
+      // console.log("The orders are " + res.data);
+      res.data.map((item) => {
+        console.log(item);
+      });
       document.getElementById("Electronics Items").innerHTML = "";
       document.getElementById("SkinCare Items").innerHTML = "";
       document.getElementById("Food Items").innerHTML = "";
 
       const products = res.data;
-
+      //console.log("The orders are " + products);
       products.forEach((product) => {
         // Select the appropriate container
+
         const container = document.getElementById(product.category);
 
         // Create a Bootstrap-styled card with the delete button inside
@@ -72,7 +77,7 @@ function getAllProducts() {
 function deleteProduct(productId, productCard) {
   axios
     .delete(
-      `https://crudcrud.com/api/e64d14d8036241159a8217625a9fcae7/products/${productId}`
+      `https://crudcrud.com/api/1c35ffd288314e81af1dae1b2c77a7e6/products/${productId}`
     )
     .then(() => {
       // Remove the product card from the UI

@@ -12,7 +12,7 @@ productForm.addEventListener("submit", function (event) {
 
   axios
     .post(
-      "https://crudcrud.com/api/1c35ffd288314e81af1dae1b2c77a7e6/products",
+      "https://crudcrud.com/api/c08a3900fa44451686806d77972fccb8/products",
       productDetails
     )
     .then(() => {
@@ -23,12 +23,17 @@ productForm.addEventListener("submit", function (event) {
       console.error("Error adding product:", error);
     });
   productForm.reset();
+
+  // axios.post(
+  //   "https://6794661aaad755a134e96aa2.mockapi.io/api/v1/:products",
+  //   productDetails
+  // );
 });
 
 // Function to get and display all products
 function getAllProducts() {
   axios
-    .get("https://crudcrud.com/api/1c35ffd288314e81af1dae1b2c77a7e6/products")
+    .get("https://crudcrud.com/api/c08a3900fa44451686806d77972fccb8/products")
     .then((res) => {
       // Clear previous content
       // console.log("The orders are " + res.data);
@@ -77,7 +82,7 @@ function getAllProducts() {
 function deleteProduct(productId, productCard) {
   axios
     .delete(
-      `https://crudcrud.com/api/1c35ffd288314e81af1dae1b2c77a7e6/products/${productId}`
+      `https://crudcrud.com/api/c08a3900fa44451686806d77972fccb8/products/${productId}`
     )
     .then(() => {
       // Remove the product card from the UI
